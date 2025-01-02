@@ -1,0 +1,1622 @@
+// import { render } from "@testing-library/react";
+// import React from "react";
+//? console.log(React.Component);
+
+// const { FaUpRightAndDownLeftFromCenter } = require("react-icons/fa6");
+
+//? classbased Component
+// class App extends React.Component {
+//   constructor() {
+//     super();
+//   }
+//   render() {
+//     return (
+//       <div>
+//         <section>
+//           <article>
+//             <h1>Hello World</h1>
+//           </article>
+//         </section>
+//       </div>
+//     );
+//   }
+// }
+// export default App;
+
+//?function component
+
+// function App() {
+//   let str = "JavaScript";
+//   return (
+//     <div>
+//       <h1>Function</h1>
+//       <h1>{str}</h1>
+//       <h1>Tha calculation is {100 + 100}</h1>
+//       <form>
+//         <label htmlFor="username">username</label>
+//         <input type="text" name="username" id="username" />
+//         <br></br>
+//         <br></br>
+//         <label htmlFor="password">password</label>
+//         <input type="password" name="password" id="password" />
+//         <br></br>
+//       </form>
+//     </div>
+//   );
+// }
+// export default App;
+
+//! State
+// import React from "react";
+// class App extends React.Component {
+//* using the state properties
+// state = {
+//   userData: {
+//     name: "Sachin",
+//     id: 123,
+//     skills: ["js", "react"],
+//   },
+// };
+
+//* using in the constructor
+//   constructor() {
+//      super();
+//     this.state = {
+//       userData: {
+//         name: "Sachin",
+//         id: 123,
+//         skills: ["js", "react"],
+//       },
+//     };
+//     console.log(this);
+//   }
+//   render() {
+//     return (
+//       <div>
+//         <h1>Username : {this.state.userData.name}</h1>
+//         <h1>ID: {this.state.userData.id}</h1>
+//         <h1>
+//           Skills :{" "}
+//           {this.state.userData.skills.map(function (a, b) {
+//             // return <li key = {b+1}>{a}</li>;
+//             return <span>{a}, </span>;
+//           })}
+//         </h1>
+//       </div>
+//     );
+//   }
+// }
+// export default App;
+
+//! How to  define function based Component
+
+// import React, { Children, useState } from "react";
+
+// ? Function Based Component
+// function App() {
+//   let [data, setData] = useState({
+//     name: "Atul Thomabare",
+//     id: 123,
+//     skills: ["js", "react", "PHP"],
+//     isMarried: false,
+//     Children: 2,
+//   });
+
+//   return (
+//     <>
+//       <h1>Name : {data.name}</h1>
+//       <h1>id : {data.id}</h1>
+//       <h1>
+//         Skills :{" "}
+//         {data.skills.map((v, i) => {
+//           return <span key={i + 1}> {v} ,</span>;
+//         })}
+//       </h1>
+
+//       <h1>
+//         Marital Status : {data.isMarried == true ? "Married " : "Not Married"}
+//       </h1>
+
+//       <h1>Children : {data.children} </h1>
+//     </>
+//   );
+// }
+
+//? Updating Updator Function
+// import { useState } from "react";
+// function App() {
+//   let [user, setUser] = useState({
+//     name: "Atul Thombare",
+//     id: 69,
+//     Company: "TCS",
+//   });
+
+//   let { name, id, Company } = user;
+//   return (
+//     <>
+//       <h1>Name : {name}</h1>
+//       <h1>Id : {id}</h1>
+//       <h1>Company : {Company}</h1>
+//       <button
+//         type="button"
+//         onClick={(e) => {
+//           setUser({ name: "ABC", id: 79, Company: "Accenture" });
+//         }}
+//       >
+//         Change the data
+//       </button>
+//     </>
+//   );
+// }
+// export default App;
+
+//! Function Based Component INcrement, Decrement and reset
+
+// import React, { useState } from "react";
+
+// let App = () => {
+//   let [count, setCount] = useState(0);
+
+//   //& 1st Method
+//   // let Increment = (e) => {
+//   //   setCount(count + 1);
+//   // };
+//   // let Decrement = (e) => {
+//   //   setCount(count - 1);
+//   // };
+//   // let Reset = (e) => {
+//   //   setCount(0);
+//   // };
+
+//   //& 2nd method
+//   let Increment = (e) => setCount((preVal) => preVal + 1);
+//   let Decrement = (e) => setCount((preVal) => preVal - 1);
+//   let Reset = (e) => {
+//     setCount(0);
+//   };
+//   return (
+//     <div>
+//       <aside>
+//         <h1>{count}</h1>
+//       </aside>
+//       <aside>
+//         <button onClick={Increment}>Increment</button>
+//         <button onClick={Decrement}>Decrement</button>
+//         <button onClick={Reset}>Reset</button>
+//       </aside>
+//     </div>
+//   );
+// };
+
+// export default App;
+
+//! Class Based Component which uses setState() to increment , Decrement and Reset
+// import React, { Component } from "react";
+
+// class App extends Component {
+//   state = { count: 0 };
+//   Increment = () => {
+//     this.setState({ count: this.state.count + 1 });
+//   };
+//   Decrement = () => {
+//     this.setState({ count: this.state.count - 1 });
+//   };
+//   Reset = () => {
+//     this.setState({ count: 0 });
+//   };
+//   render() {
+//     return (
+//       <div className="container">
+//         <aside className="a1">
+//           <h1 className="count">{this.state.count}</h1>
+//         </aside>
+//         <aside className="a2">
+//           <button onClick={this.Increment}>Increment</button>
+//           <button onClick={this.Decrement}>Decrement</button>
+//           <button onClick={this.Reset}>Reset</button>
+//         </aside>
+//       </div>
+//     );
+//   }
+// }
+
+// export default App;
+
+//! How to transfer the props in CBC
+
+// import React, { Component } from "react";
+// import Child from "./Child";
+
+// class App extends Component {
+//   render() {
+//     return (
+//       <div>
+//         <h1>Hello World</h1>
+//         <p>
+//           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga dolor
+//           officia eaque, a modi dignissimos! Ducimus asperiores officiis eaque
+//           porro.
+//         </p>
+//         <Child username="Sachin" id={123} skills={["Java", "JS", "React"]} />
+//       </div>
+//     );
+//   }
+// }
+
+// export default App;
+
+//! How to transfer the props in FBC
+// import React from "react";
+// import Child from "./Child";
+
+// const App = () => {
+//   return (
+//     <div>
+//       <h1>Hello World</h1>
+//       <p>
+//         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga dolor
+//         officia eaque, a modi dignissimos! Ducimus asperiores officiis eaque
+//         porro.
+//       </p>
+//       <Child username="Sachin" id={123} skills={["Java", "JS", "React"]} />
+//     </div>
+//   );
+// };
+
+// export default App;
+
+//! How to fetch the json file and store as a state value
+
+// import React from "react";
+// import products from "./data.json";
+
+// const App = () => {
+//   return (
+//     <div className="Container">
+//       <table>
+//         <thead>
+//           <tr>
+//             <th>ID</th>
+//             <th>IMAGE</th>
+//             <th>DESCRIPTION</th>
+//             <th>TITLE</th>
+//             <th>PRICE</th>
+//             <th>Rating</th>
+//           </tr>
+//         </thead>
+//         <tbody>
+//           {products.map((v, i) => {
+//             let { id, title, description, price, image, rating } = v;
+//             console.log({ image });
+//             return (
+//               <tr key={i + 1}>
+//                 <td>{id}</td>
+//                 <td>
+//                   <img src={image} alt="no image" />
+//                 </td>
+//                 <td>{description}</td>
+//                 <td>{title}</td>
+//                 <td>{price}</td>
+//                 <td>{rating.rate}</td>
+//               </tr>
+//             );
+//           })}
+//         </tbody>
+//       </table>
+//     </div>
+//   );
+// };
+
+// export default App;
+
+// ! How to transfer the function, json and state value using props
+
+// import React, { useState } from "react";
+// import Child from "./Child";
+// import products from "./data.json";
+
+// const App = () => {
+//   let [count, setCount] = useState(0);
+//   let demo = () => {
+//     return "demo Function";
+//   };
+//   return (
+//     <div>
+//       <Child count={[count, setCount]} products={products} demo={demo} />
+//     </div>
+//   );
+// };
+
+// export default App;
+
+//! default Prop set
+// import React, { Component } from "react";
+// import Child from "./Child";
+
+// class App extends Component {
+//   render() {
+//     return (
+//       <div>
+//         <Child username="Sachin" id={123} company="TCS" />
+//         <Child username="Sachin" id={123} />
+//         <Child id={123} company="TCS" />
+//       </div>
+//     );
+//   }
+// }
+
+// export default App;
+
+//! prototype
+//  ?list and keys in fragment:
+// import React, { useState } from "react";
+// import Child from "./Child";
+// const App = () => {
+//   let [skills] = useState(["java", "php", "js", "html", "css"]);
+//   return (
+//     <div>
+//       <ol>
+//         {skills.map((v, i) => {
+//           return (
+//             <React.Fragment key={i + 1}>
+//               <li>{v}</li>
+//             </React.Fragment>
+//           );
+//         })}
+//       </ol>
+//     </div>
+//   );
+// };
+
+// export default App;
+
+//?  --prop.children
+// import React from "react";
+// import Child from "./Child";
+
+// const App = () => {
+//   return (
+//     <div>
+//       <Child>
+//         <h1>username:username</h1>
+//         <h2>id:id</h2>
+//         <h2>skills:corejva ,jdbc,sql</h2>
+//       </Child>
+//       <Child>
+//         <h1>username:username</h1>
+//         <h2>id:id</h2>
+//         <h2>skills:corejva ,jdbc,sql</h2>
+//       </Child>
+//     </div>
+//   );
+// };
+
+// export default App;
+
+//! How to create the ref in CBC
+// import React, { Component } from "react";
+
+// class App extends Component {
+//   constructor() {
+//     super();
+//     this.divRef = React.createRef();
+//   }
+//   handleClick = (e)=>{
+//     this.divRef.current.style.background = "hotpink";
+//   }
+//   render() {
+//     return (
+//       <div
+//         ref={this.divRef}
+//         className="container"
+//         onClick={this.handleClick}
+//       ></div>
+//     );
+//   }
+// }
+// export default App;
+
+//! How to create the ref in FBC
+// import React, { useRef } from "react";
+
+// const App = () => {
+//   let divRef = useRef();
+//   let handleClick = (e) => {
+//     divRef.current.style.background = "goldenrod";
+//   };
+//   return <div ref={divRef} className="container" onClick={handleClick}></div>;
+// };
+
+// export default App;
+
+//! How to control the video using ref
+
+// import React, { useState, useRef } from "react";
+// // import video from "./Video/vid.mp4";
+// import vid from "./Video/dumy.mp4";
+
+// const App = () => {
+//   let divRef = useRef();
+//   let [play, setPlay] = useState(false);
+//   let [text, setText] = useState("");
+//   let handleClick = (e) => {
+//     setPlay(!play);
+//     if (play) {
+//       divRef.current.play();
+//       setText("");
+//     } else {
+//       divRef.current.pause();
+//       setText("Video Stopped");
+//     }
+//   };
+//   return (
+//     <div className="container">
+//       <h1 className="vv">{text}</h1>
+//       <video
+//         src={vid}
+//         onClick={handleClick}
+//         className="vid"
+//         ref={divRef}
+//         loop
+//       ></video>
+//     </div>
+//   );
+// };
+// export default App;
+
+//! How to do the conditional rendering in react
+//! If else
+
+// import React from "react";
+// import { useState } from "react";
+
+// const App = () => {
+//   let [isLoggedIN, setIsLoggedIN] = useState(true);
+//   if (isLoggedIN) {
+//     return (
+//       <div className="container">
+//         <article>
+//           <aside className="a1">
+//             <h1>Heading</h1>
+//           </aside>
+//           <aside className="a2">
+//             <ul>
+//               <li>HOME</li>
+//               <li>PRODUCTS</li>
+//               <li>ABOUT US</li>
+//               <li>Hii Sachin</li>
+//               <li>
+//                 <button
+//                   type="button"
+//                   onClick={(e)=>{
+//                     setIsLoggedIN(false)
+//                   }}
+
+//                 >
+//                   Logout
+//                 </button>
+//               </li>
+//             </ul>
+//           </aside>
+//         </article>
+//       </div>
+//     );
+//   } else {
+//     return (
+//       <div className="container">
+//         <article>
+//           <aside className="a1">
+//             <h1>Heading</h1>
+//           </aside>
+//           <aside className="a2">
+//             <ul>
+//               <li>HOME</li>
+//               <li>PRODUCTS</li>
+//               <li>ABOUT US</li>
+//               <li>Log in</li>
+//               <li>Sign Up</li>
+//             </ul>
+//           </aside>
+//         </article>
+//       </div>
+//     );
+//   }
+// };
+
+// export default App;
+
+//! By using Switch Case
+
+//! Ternary Operator
+// import React from "react";
+// import { useState } from "react";
+
+// const App = () => {
+//   let [isLoggedIN, setIsLoggedIN] = useState(true);
+//   let IsGuest = (e) => {
+//     return (
+//       <>
+//         <li>LOG IN</li>
+//         <li>
+//           <button style={{ background: isLoggedIN ? "hotpink" : "black" }}>
+//             SIGN UP
+//           </button>
+//         </li>
+//       </>
+//     );
+//   };
+//   let IsUser = (e) => {
+//     return (
+//       <>
+//         <li>LOG IN</li>
+//         <li>
+//           <button
+//             onClick={(e) => setIsLoggedIN(false)}
+//             style={{ background: isLoggedIN ? "hotpink" : "black" }}
+//           >
+//             Log Out
+//           </button>
+//         </li>
+//       </>
+//     );
+//   };
+//   return (
+//     <div className="container">
+//       <article>
+//         <aside className="a1">Heading</aside>
+//         <aside>
+//           <ul className={isLoggedIN ? "active" : "inactive"}>
+//             <li>HOME</li>
+//             <li>ABOUT US</li>
+//             <li>PRODUCTS</li>
+//             {isLoggedIN ? <IsUser /> : <IsGuest />}
+//           </ul>
+//         </aside>
+//       </article>
+//     </div>
+//   );
+// };
+
+// export default App;
+
+//! Using && operator
+
+// import React, { Component } from "react";
+// import { FaBell } from "react-icons/fa";
+
+// class App extends Component {
+//   state = {
+//     notification: ["sathya", "priya"],
+//   };
+//   render() {
+//     return (
+//       <div>
+//         <h1>
+//           <FaBell />
+//           <sup>
+//             {this.state.notification.length > 0 &&
+//               this.state.notification.length}
+//           </sup>
+//         </h1>
+//       </div>
+//     );
+//   }
+// }
+
+// export default App;
+
+//! How to fetch the form data using uncontrolled Component
+
+// import React from "react";
+// import { useRef } from "react";
+// const App = () => {
+//   let formRef = useRef();
+//   let handleSubmit = (e) => {
+//     e.preventDefault();
+//     let data = new FormData(formRef.current);
+//     let finalData = Object.fromEntries(data);
+//     console.log(finalData);
+//   };
+//   return (
+//     <div>
+//       <form onSubmit={handleSubmit} ref={formRef}>
+//         <input
+//           type="text"
+//           name="username "
+//           id="username"
+//           placeholder="Enter Username"
+//         />
+//         <br />
+//         <input
+//           type="password"
+//           name="password"
+//           id="password"
+//           placeholder="Enter Password"
+//         />
+//         <br />
+//         <input type="email" name="email" id="email" placeholder="Enter Email" />
+//         <br />
+//         <label htmlFor="gender">Select Gender : </label>
+//         <div className="container-gender">
+//           <input type="radio" name="gender" id="male" value={"male"} />
+//           Male <br />
+//           <input type="radio" name="gender" id="female" value={"female"} />
+//           female <br />
+//           <input type="radio" name="gender" id="other" value={"other"} />
+//           other <br />
+//         </div>
+
+//         <div>
+//           <label htmlFor="course">Select Courses :</label>
+//           <input
+//             type="checkbox"
+//             name="course"
+//             id="Java"
+//             value={"Java"}
+//           /> Java <br />
+//           <input type="checkbox" name="course" id="Js" value={"Js"} /> Js <br />
+//           <input
+//             type="checkbox"
+//             name="course"
+//             id="PHP"
+//             value={"PHP"}
+//           /> PHP <br />
+//           <input
+//             type="checkbox"
+//             name="course"
+//             id="Python"
+//             value={"Python"}
+//           />{" "}
+//           Python <br />
+//         </div>
+//         <button type="submit">Submit</button>
+//       </form>
+//     </div>
+//   );
+// };
+
+// export default App;
+
+//! Controlled Component
+//? How to fetch the data using controlled Component
+
+// import React from "react";
+// import { useState } from "react";
+// const App = () => {
+//   let [username, setUsername] = useState();
+//   let [password, setPassword] = useState();
+//   let [email, setEmail] = useState();
+//   let handleSubmit = (e) => {
+//     e.preventDefault();
+//     console.log(username, password, email);
+//   };
+//   return (
+//     <div>
+//       <form onSubmit={handleSubmit} >
+//         <input
+//           type="text"
+//           name="username "
+//           id="username"
+//           placeholder="Enter Username"
+//           onChange={(e) => {
+//             setUsername(e.target.value);
+//           }}
+//           value={username}
+//         />
+//         <br />
+//         <input
+//           type="password"
+//           name="password"
+//           id="password"
+//           placeholder="Enter Password"
+//           onChange={(e) => {
+//             setPassword(e.target.value);
+//           }}
+//           value={password}
+//         />
+//         <br />
+//         <input
+//           type="email"
+//           name="email"
+//           id="email"
+//           placeholder="Enter Email"
+//           onChange={(e) => {
+//             setEmail(e.target.value);
+//           }}
+//           value={email}
+//         />
+//         <br />
+//         <button type="submit">Submit</button>
+//       </form>
+//     </div>
+//   );
+// };
+// export default App;
+
+//! How to fetch form data using controlled way and using only one state
+
+// import React from "react";
+// import { useState } from "react";
+// import countries from "./data.json";
+// const App = () => {
+//   let [countriesAll, setCountries] = useState(countries);
+//   let [data, setData] = useState({
+//     username: "",
+//     password: "",
+//     email: "",
+//     gender: "",
+//     DOB: "",
+//     percentage: "50",
+//     course: [],
+//     country: "",
+//   });
+
+//   let handleSubmit = (e) => {
+//     e.preventDefault();
+//     console.log(data);
+//   };
+
+//   let handleChange = (e) => {
+//     console.log(e);
+//     let { name, value } = e.target;
+//     setData({ ...data, [name]: value });
+//   };
+
+//   let handleChangeCourse = (e) => {
+//     let { value } = e.target;
+//     let { course } = data;
+//     if (course.includes(value) === false) {
+//       data.course.push(value);
+//     } else {
+//       let index = course.indexOf(value);
+//       data.course.splice(index, 1);
+//     }
+//   };
+
+//   return (
+//     <div>
+//       <form onSubmit={handleSubmit}>
+//         <input
+//           type="text"
+//           name="username"
+//           id="username"
+//           placeholder="Enter Username"
+//           onChange={handleChange}
+//           value={data.username}
+//         />
+//         <br />
+//         <input
+//           type="password"
+//           name="password"
+//           id="password"
+//           placeholder="Enter Password"
+//           onChange={handleChange}
+//           value={data.password}
+//         />
+//         <br />
+//         <input
+//           type="email"
+//           name="email"
+//           id="email"
+//           placeholder="Enter Email"
+//           onChange={handleChange}
+//           value={data.email}
+//         />
+//         <br />
+//         <input
+//           type="range"
+//           name="percentage"
+//           id="percentage"
+//           min={35}
+//           max={100}
+//           onChange={handleChange}
+//           value={data.percentage}
+//         />
+//         <span>{data.percentage}</span>
+//         <br />
+//         <label htmlFor="gender">Select Gender : </label>
+//         <div
+//           className="container-gender"
+//           onChange={handleChange}
+//           value={data.gender}
+//         >
+//           <input type="radio" name="gender" id="male" value={"male"} />
+//           Male <br />
+//           <input type="radio" name="gender" id="female" value={"female"} />
+//           female <br />
+//           <input type="radio" name="gender" id="other" value={"other"} />
+//           other <br />
+//         </div>
+
+//         <div>
+//           <label htmlFor="course">Select Courses :</label>
+//           <div className="courses" onChange={handleChangeCourse}>
+//             <input type="checkbox" name="course" id="Java" value={"Java"} />{" "}
+//             Java <br />
+//             <input type="checkbox" name="course" id="Js" value={"Js"} /> Js{" "}
+//             <br />
+//             <input
+//               type="checkbox"
+//               name="course"
+//               id="PHP"
+//               value={"PHP"}
+//             /> PHP <br />
+//             <input
+//               type="checkbox"
+//               name="course"
+//               id="Python"
+//               value={"Python"}
+//             />{" "}
+//             Python <br />
+//           </div>
+//         </div>
+
+//         <label htmlFor="countries">
+//           <select name="countries" id="countries">
+//             {countries.map((v, i) => {
+//               let { name } = v;
+//               return (
+//                 <option value={name} key={i + 1}>
+//                   {name}
+//                 </option>
+//               );
+//             })}
+//           </select>
+//         </label>
+
+//         <button type="submit">Submit</button>
+//       </form>
+//     </div>
+//   );
+// };
+// export default App;
+
+//? class Component using uncontrolled way
+
+// import React, { Component } from "react";
+
+// class App extends Component {
+//   constructor() {
+//     super();
+//     this.formRef = React.createRef();
+//   }
+//   courses = [];
+
+//   handleSubmit = (e) => {
+//     e.preventDefault();
+//     let data = new FormData(this.formRef.current);
+//     let finalData = Object.fromEntries(data);
+//     console.log(finalData);
+//   };
+
+//   render() {
+//     return (
+//       <div>
+//         <form onSubmit={this.handleSubmit} ref={this.formRef}>
+//           <input
+//             type="text"
+//             name="username "
+//             id="username"
+//             placeholder="Enter Username"
+//           />
+//           <br />
+//           <input
+//             type="password"
+//             name="password"
+//             id="password"
+//             placeholder="Enter Password"
+//           />
+//           <br />
+//           <input
+//             type="email"
+//             name="email"
+//             id="email"
+//             placeholder="Enter Email"
+//           />
+//           <br />
+//           <label htmlFor="gender">Select Gender : </label>
+//           <div className="container-gender">
+//             <input type="radio" name="gender" id="male" value={"male"} />
+//             Male <br />
+//             <input type="radio" name="gender" id="female" value={"female"} />
+//             female <br />
+//             <input type="radio" name="gender" id="other" value={"other"} />
+//             other <br />
+//           </div>
+
+//           <div>
+//             <label htmlFor="course">Select Courses :</label>
+//             <input
+//               type="checkbox"
+//               name="course"
+//               id="Java"
+//               value={"Java"}
+//             />{" "}
+//             Java <br />
+//             <input type="checkbox" name="course" id="Js" value={"Js"} /> Js{" "}
+//             <br />
+//             <input
+//               type="checkbox"
+//               name="course"
+//               id="PHP"
+//               value={"PHP"}
+//             /> PHP <br />
+//             <input
+//               type="checkbox"
+//               name="course"
+//               id="Python"
+//               value={"Python"}
+//             />{" "}
+//             Python <br />
+//           </div>
+//           <button type="submit">Submit</button>
+//         </form>
+//       </div>
+//     );
+//   }
+// }
+
+// export default App;
+
+//! Life Cycle methods in REact
+
+// import React, { Component } from "react";
+
+// class App extends Component {
+//   constructor() {
+//     super();
+//     this.state = {
+//       products: [],
+//     };
+//     console.log("Constructor Rendered");
+//   }
+
+//   static getDerivedStateFromProps(props, state) {
+//     console.log(props, state);
+//     console.log("getDerivedStateFromProps");
+//     return null;
+//   }
+
+//   componentDidMount() {
+//     console.log("Component Mounted");
+//     window
+//       .fetch("https://fakestoreapi.com/products", { method: "GET" })
+//       .then((data) => {
+//         data.json().then(
+//           (val) => {
+//             this.setState({ products: val });
+//           },
+//           (e) => e
+//         );
+//       });
+//   }
+//   render() {
+//     return (
+//       <div>
+//         <h1>Life Cycle of Class Based Component</h1>
+//       </div>
+//     );
+//   }
+// }
+
+// export default App;
+
+// import React, { Component } from "react";
+
+// class App extends Component {
+//   constructor() {
+//     super();
+//     this.state = {
+//       products: [],
+//     };
+//     console.log("Constructor Rendered");
+//   }
+
+//   static getDerivedStateFromProps(props, state) {
+//     console.log(props, state);
+//     console.log("getDerivedStateFromProps");
+//     return null;
+//   }
+
+//   componentDidMount() {
+//     window.fetch("https://fakestoreapi.com/products", { method: "GET" }).then(
+//       (data) => {
+//         data.json().then(
+//           (val) => {
+//             this.setState({ products: val });
+//             console.log(this.state.products);
+//           },
+//           (e) => e
+//         );
+//       },
+//       (e) => e
+//     );
+//   }
+//   render() {
+//     return (
+//       <div className="container">
+//         <table>
+//           <thead>
+//             <tr>
+//               <th>ID</th>
+//               <th>IMAGE</th>
+//               <th>TITLE</th>
+//               <th>CATEGORY</th>
+//               <th>PRICE</th>
+//               <th>DESCRIPTION</th>
+//             </tr>
+//           </thead>
+//           <tbody>
+//             {this.state.products.map((v, i) => {
+//               let { id, image, title, category, price, description } = v;
+//               return (
+//                 <tr>
+//                   <td>{id}</td>
+//                   <td>
+//                     <img
+//                       src={image}
+//                       alt="NO Image"
+//                       srcset=""
+//                       className="imgr"
+//                     />
+//                   </td>
+//                   <td>{title}</td>
+//                   <td>{category}</td>
+//                   <td>{price}</td>
+//                   <td>{description}</td>
+//                 </tr>
+//               );
+//             })}
+//           </tbody>
+//         </table>
+//       </div>
+//     );
+//   }
+// }
+
+// export default App;
+
+//!  Life Cycle Methods In React
+//? UpDating Phase
+
+// import React, { Component } from "react";
+// import products from "./data1.json";
+
+// export default class App extends Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       data: products,
+//     };
+//     console.log("Constructor Executed");
+//     this.handleClick = this.handleClick.bind(this);
+//   }
+//   handleClick() {
+//     window.fetch("https://dummyjson.com/products").then(
+//       (d) =>
+//         d.json().then(
+//           (v) => this.setState({ data: v.products }),
+//           (e) => e
+//         ),
+//       (e) => e
+//     );
+//   }
+//   static getDerivedStateFromProps(props, state) {
+//     console.log("getDerivedStateFromProps Method");
+//     return null;
+//   }
+//   shouldComponentUpdate() {
+//     console.log("ShouldComponentUpdate");
+//     return true;
+//     // return false;
+//   }
+//   getSnapshotBeforeUpdate(precProps, prevState) {
+//     console.log(precProps, prevState);
+//     console.log("getSnapshotBeforeUpdate method");
+//     return [precProps, prevState];
+//   }
+//   componentDidUpdate(props, state, snapshot) {
+//     console.log("componentDidUpdate method");
+//     console.log(props);
+//     console.log(state);
+//     console.log(snapshot);
+//     alert("Products updated");
+//   }
+//   componentDidMount() {
+//     console.log("component mounted");
+//   }
+//   render() {
+//     console.log("Render Method");
+//     return (
+//       <section>
+//         <article>
+//           <button onClick={this.handleClick}>update Products</button>
+//           <table>
+//             <thead>
+//               <tr>
+//                 <th>ID</th>
+//                 <th>IMAGE</th>
+//                 <th>TITLE</th>
+//                 <th>DESCRIPTION</th>
+//                 <th>PRICE</th>
+//               </tr>
+//             </thead>
+//             <tbody>
+//               {this.state.data.map((v) => {
+//                 let { id, title, description, price, image, thumbnail } = v;
+//                 return (
+//                   <tr key={id}>
+//                     <td>{id}</td>
+//                     <td>
+//                       <img src={image || thumbnail} alt={id} />
+//                     </td>
+//                     <td>{title}</td>
+//                     <td>{description}</td>
+//                     <td>{price}</td>
+//                   </tr>
+//                 );
+//               })}
+//             </tbody>
+//           </table>
+//         </article>
+//       </section>
+//     );
+//   }
+// }
+
+//!  Life Cycle Methods In React
+//? UnMounting phase Phase
+
+// import React, { Component } from "react";
+// import Child from "./Child";
+
+// export default class App extends Component {
+//   constructor(props) {
+//     super(props);
+//     console.log("Constructor Rendered");
+//     this.state = { count: 0 };
+//   }
+//   static getDerivedStateFromProps() {
+//     console.log("getDerivedStateFromProps");
+//     return null;
+//   }
+//   componentDidMount() {
+//     console.log("componentDidMount");
+//   }
+//   render() {
+//     console.log("rendered Method");
+
+//     return (
+//       <div>
+//         <h2>App Component : {this.state.count}</h2>
+//         <button onClick={(e) => this.setState({ count: this.state.count + 1 })}>
+//           Increment
+//         </button>
+//         {this.state.count < 8 ? <Child count={this.state.count} /> : null}
+//       </div>
+//     );
+//   }
+// }
+
+//! useEffect()  !important
+// import React, { useEffect, useState } from "react";
+// const App = () => {
+//   let [count, setCount] = useState(0);
+//   let [dark, setDark] = useState(false);
+//   useEffect(() => {
+//     console.log("Component Mounted");
+//   }, []);
+//   return (
+//     <div>
+//       <h1
+//         style={{
+//           background: dark ? "black" : "white",
+//           color: dark ? "white" : "black",
+//         }}
+//       >
+//         Count = {count}
+//       </h1>
+//       <button onClick={(e) => setCount(count + 1)}>Increment</button>
+//       <button onClick={(e) => setDark(!dark)}>Change Color</button>
+//     </div>
+//   );
+// };
+// export default App;
+
+//! How to fetch the data using useEffect()
+
+// import axios from "axios";
+// import React, { useEffect, useState } from "react";
+
+// const App = () => {
+//   let [data, setData] = useState([]);
+//   useEffect(() => {
+//     console.log("hello");
+//     axios.get("https://fakestoreapi.com/products").then(
+//       (d) => {
+//         // console.log(d.data);
+//         setData(d.data)
+//       },
+//       () => {}
+//     );
+//   });
+//   return (
+//     <div className="container">
+//       <table>
+//         <thead>
+//           <tr>
+//             <th>ID</th>
+//             <th>IMAGE</th>
+//             <th>TITLE</th>
+//             <th>CATEGORY</th>
+//             <th>PRICE</th>
+//             <th>DESCRIPTION</th>
+//           </tr>
+//         </thead>
+//         <tbody>
+//           {data.map((v, i) => {
+//             let { id, image, title, category, price, description } = v;
+//             return (
+//               <tr>
+//                 <td>{id}</td>
+//                 <td>
+//                   <img src={image} alt="NO Image" srcset="" className="imgr" />
+//                 </td>
+//                 <td>{title}</td>
+//                 <td>{category}</td>
+//                 <td>{price}</td>
+//                 <td>{description}</td>
+//               </tr>
+//             );
+//           })}
+//         </tbody>
+//       </table>
+//     </div>
+//   );
+// };
+
+// export default App;
+
+// import React, { useEffect, useState } from "react";
+// import Child from "./Child";
+
+// const App = () => {
+//   let [count, setCount] = useState(0);
+//   useEffect(() => {
+//     console.log("Component Mounted");
+//   }, []);
+//   return (
+//     <div>
+//       <h1>Count - {count}</h1>
+//       <button
+//         onClick={(e) => {
+//           setCount(count + 1);
+//         }}
+//       >
+//         Increment
+//       </button>
+//       {count < 5 ? <Child count={count} /> : null}
+//     </div>
+//   );
+// };
+
+// export default App;
+
+//! Reducer Hook
+
+// import React, { useReducer } from "react";
+
+// let initialState = 0;
+// let reducer = (state, action) => {
+//   switch (action.type) {
+//     case "Increment":
+//       return state + 1;
+//     case "Decrement":
+//       return state - 1;
+//     case "Reset":
+//       return initialState;
+//     default:
+//       return state;
+//   }
+// };
+
+// const App = () => {
+//   let [count, dispatch] = useReducer(reducer, initialState);
+//   return (
+//     <div>
+//       <h1>Count = {count}</h1>
+//       <button type="button" onClick={(e) => dispatch({ type: "Increment" })}>
+//         Increment
+//       </button>
+//       <button type="button" onClick={(e) => dispatch({ type: "Decrement" })}>
+//         Decrement
+//       </button>
+//       <button type="button" onClick={(e) => dispatch({ type: "Reset" })}>
+//         Reset
+//       </button>
+//     </div>
+//   );
+// };
+
+// export default App;
+
+//! useMemo() memo
+
+// import React, { useMemo, useState } from "react";
+
+// const App = () => {
+//   let [count, setCount] = useState(0);
+//   let [dark, setDark] = useState();
+//   let doubleNumber = useMemo(() => {
+//     return slowNumber(count);
+//   }, [count]);
+//   return (
+//     <div>
+//       <input
+//         type="number"
+//         name=""
+//         id=""
+//         value={count}
+//         onChange={(e) => {
+//           setCount(e.target.value);
+//         }}
+//       />
+//       <button onClick={(e) => setDark((p) => !p)}>Change Color</button>
+//       <h1
+//         style={{
+//           background: dark ? "#111" : "#fff",
+//           color: dark ? "#fff" : "#111",
+//         }}
+//       >
+//         {doubleNumber}
+//       </h1>
+//     </div>
+//   );
+// };
+
+// function slowNumber(num) {
+//   console.log("computing");
+//   for (let i = 0; i < 10000000; i++) {}
+//   return num * 2;
+// }
+
+// export default App;
+
+//! UseCallback hook
+// import React, { useCallback, useState } from "react";
+// import Title from "./Components/Title";
+// import Counter from "./Components/Counter";
+// import Button from "./Components/Button";
+
+// const App = () => {
+//   let [age, setAge] = useState(25);
+//   let [salary, setSalary] = useState(25000);
+//   let IncrementAge = useCallback(() => {
+//     setAge((p) => p + 1);
+//   }, [age]);
+//   let DecrementSalary = useCallback(() => {
+//     setSalary((p) => p + 1000);
+//   }, [salary]);
+//   return (
+//     <div>
+//       <Title />
+//       <Counter text="age" count={age} />
+//       <Button handleClick={IncrementAge}>Increment Age</Button>
+//       <Counter text="salary" count={salary} />
+//       <Button handleClick={DecrementSalary}>Decrement Salary</Button>
+//     </div>
+//   );
+// };
+
+// export default App;
+
+//! Higher Order Component
+
+// import React from "react";
+// import ClickCounter from "./Components1/ClickCounter";
+// import HoverCounter from "./Components1/HoverCounter";
+
+// const App = () => {
+//   return (
+//     <div>
+//       <ClickCounter name="Sachin" />
+//       <HoverCounter name="Rohit" />
+//     </div>
+//   );
+// };
+
+// export default App;
+
+//! Custom Hooks
+// import React from "react";
+// import DocumentTitle1 from "./Custom Hooks/DocumentTitle1";
+// import DocumentTitle2 from "./Custom Hooks/DocumentTitle2";
+
+// const App = () => {
+//   return (
+//     <div>
+//       <DocumentTitle1 />
+//       <DocumentTitle2 />
+//     </div>
+//   );
+// };
+
+// export default App;
+
+//? 2nd example
+// import React from "react";
+// import ClickCounter1 from "./Custom Hooks/ClickCounter1";
+// import ClickCounter2 from "./Custom Hooks/ClickCounter2";
+
+// const App = () => {
+//   return (
+//     <div>
+//       <ClickCounter1 />
+//       <ClickCounter2 />
+//     </div>
+//   );
+// };
+
+// export default App;
+
+//! Speech Recognition
+
+// import React, { useState } from "react";
+
+// const App = () => {
+//   let [text, setText] = useState("...");
+//   let handleClick = (e) => {
+//     window.SpeechRecognition =
+//       window.SpeechRecognition || window.webkitSpeechRecognition;
+
+//     let recognition = new window.SpeechRecognition();
+
+//     recognition.start();
+
+//     recognition.addEventListener("result", (e) => {
+//       setText(e.results[0][0].transcript);
+//     });
+//   };
+//   return (
+//     <div>
+//       <h1>{text}</h1>
+//       <button onClick={handleClick}>Listen</button>
+//     </div>
+//   );
+// };
+
+// export default App;
+
+//! Quiz application
+
+// import React, { useRef, useState } from "react";
+// import Questions from "./Questions.json";
+// function App() {
+//   let [index, setIndex] = useState(0);
+//   let [que, setQue] = useState(Questions[index]);
+//   let [lock, setLock] = useState(false);
+//   let [result, setResult] = useState(false);
+
+//   let option1 = useRef();
+//   let option2 = useRef();
+//   let option3 = useRef();
+//   let option4 = useRef();
+//   let option_array = [option1, option2, option3, option4];
+
+//   let [score, setScore] = useState(0);
+
+//   let checkAns = (e, answer) => {
+//     if (lock === false) {
+//       if (que.ans === answer) {
+//         e.target.classList.add("correct");
+//         setScore((p) => p + 1);
+//         setLock(true);
+//       } else {
+//         e.target.classList.add("wrong");
+//         setLock(true);
+//         option_array[que.ans - 1].current.classList.add("correct");
+//       }
+//     }
+//   };
+//   let handleNext = (e) => {
+//     if (lock === true) {
+//       if (index === Questions.length - 1) {
+//         setResult(true);
+//         return 0;
+//       }
+//       setIndex(++index);
+//       setQue(Questions[index]);
+//       setLock(false);
+//       option_array.map((v) => {
+//         v.current.classList.remove("correct");
+//         v.current.classList.remove("wrong");
+//         return null;
+//       });
+//     }
+//   };
+//   return (
+//     <div className="container">
+//       <article className="sub">
+//         <h1>QUIZ APP</h1>
+//         <hr />
+//         {result === false ? (
+//           <>
+//             <h3>
+//               {index + 1}. {que.Question}
+//             </h3>
+//             <ul>
+//               <li ref={option1} onClick={(e) => checkAns(e, 1)}>
+//                 {que.option1}
+//               </li>
+//               <li ref={option2} onClick={(e) => checkAns(e, 2)}>
+//                 {que.option2}
+//               </li>
+//               <li ref={option3} onClick={(e) => checkAns(e, 3)}>
+//                 {que.option3}
+//               </li>
+//               <li ref={option4} onClick={(e) => checkAns(e, 4)}>
+//                 {que.option4}
+//               </li>
+//             </ul>
+//             <button onClick={handleNext}>NEXT</button>
+//             <p>
+//               {index + 1} out of {Questions.length}
+//             </p>
+//           </>
+//         ) : (
+//           <>
+//             <h2>
+//               Your Score is {score} out of {Questions.length}
+//             </h2>
+//           </>
+//         )}
+//       </article>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+// import React, { useEffect, useState } from "react";
+
+// const App = () => {
+//   let [count, setCount] = useState(0);
+//   useEffect(() => {
+//     console.log("h111" + - count );
+//   }, [count]);
+//   return (
+//     <div>
+//       <h1>{count}</h1>
+//       <button
+//         onClick={(e) => {
+//           setCount(count + 1);
+//         }}
+//       >
+//         Increment
+//       </button>
+//     </div>
+//   );
+// };
+
+// export default App;
+
+// import React from "react";
+
+// const App = () => {
+//   let arr = [91, 63, 45, 36, 60, 79, 58, 23, 64];
+//   let odd = arr.filter((v) => {
+//     if (v % 2 != 0) {
+//       return v;
+//     }
+//   });
+//   let sort = odd.sort((a, b) => a - b);
+//   let ans = sort[1];
+//   return (
+//     <>
+//       <h1>{arr}</h1>
+//       <h1>{ans}</h1>
+//     </>
+//   );
+// };
+
+// export default App;
